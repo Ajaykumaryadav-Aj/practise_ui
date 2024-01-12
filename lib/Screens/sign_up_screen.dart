@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   const SignUpScreen({
     super.key,
   });
 
   @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
+  final TextEditingController _controller = TextEditingController();
+  bool _obscureText = true;
+  bool showPrefixIcon = true;
+  // bool passenable = true;
+  @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
         const Padding(
           padding: EdgeInsets.only(left: 20, top: 25),
@@ -58,17 +68,30 @@ class SignUpScreen extends StatelessWidget {
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
-        const SizedBox(
+        SizedBox(
           width: 380,
           child: Padding(
-            padding: EdgeInsets.only(left: 18, top: 10),
+            padding: const EdgeInsets.only(left: 18, top: 10),
             child: TextField(
+              controller: _controller,
+              onChanged: (text) {
+                setState(() {
+                  showPrefixIcon = text.isNotEmpty;
+                });
+              },
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.only(left: 20),
+                contentPadding: const EdgeInsets.only(left: 20),
                 hintText: 'Your Password',
-                prefixIcon: Icon(Icons.password_outlined),
-                suffixIcon: Icon(Icons.remove_red_eye_outlined),
-                border: OutlineInputBorder(
+                suffixIcon: IconButton(
+                  icon: Icon(
+                      _obscureText ? Icons.visibility : Icons.visibility_off),
+                  onPressed: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                ),
+                border: const OutlineInputBorder(
                   borderRadius: BorderRadius.all(
                     Radius.circular(10),
                   ),
@@ -139,7 +162,6 @@ class SignUpScreen extends StatelessWidget {
                 child: Image.asset('assets/facebook-app-symbol 1.jpg')),
           ],
         ),
-        
       ],
     );
   }
