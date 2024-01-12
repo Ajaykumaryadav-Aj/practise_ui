@@ -83,6 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 decoration: InputDecoration(
                   contentPadding: const EdgeInsets.only(left: 20),
                   hintText: 'Your Password',
+                  prefixIcon: const Icon(Icons.key),
                   suffixIcon: IconButton(
                     icon: Icon(
                         _obscureText ? Icons.visibility : Icons.visibility_off),
@@ -127,7 +128,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   alignment: Alignment.center,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(5)),
-                      color: Colors.green),
+                      color: Colors.teal),
                   child: const Text(
                     'Sign Up',
                     style: TextStyle(
@@ -138,12 +139,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 )),
           ),
           const SizedBox(height: 30),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text('Or Continue with'),
-            ],
-          ),
+          Row(children:[
+            Expanded(
+              child: Container(
+                  margin: const EdgeInsets.only(left: 10.0, right: 20.0),
+                  child: const Divider(
+                    color: Colors.black,
+                    height: 36,
+                  )),
+            ),
+            const Text("Or Continue with"),
+            Expanded(
+              child: Container(
+                  margin: const EdgeInsets.only(left: 20.0, right: 10.0),
+                  child: const Divider(
+                    color: Colors.black,
+                    height: 36,
+                  )),
+            ),
+          ]),
+          
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

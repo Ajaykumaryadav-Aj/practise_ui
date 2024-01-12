@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practise_ui/Screens/home_screen.dart';
 import 'package:practise_ui/Screens/sign_up_screen.dart';
 
 import 'Screens/sign_in_screen.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyWidget(),
+      home: const HomeScreen(),
     );
   }
 }
@@ -44,7 +45,7 @@ class MyWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(
                   15.0,
                 ),
-                color: Colors.green,
+                color: Colors.teal,
               ),
               tabs: const [
                 Tab(

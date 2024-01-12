@@ -44,9 +44,12 @@ class HomeScreen extends StatelessWidget {
                             ),
                             Row(
                               children: [
-                                Text(
-                                  'Neurologist',
-                                  style: TextStyle(color: Colors.teal),
+                                Padding(
+                                  padding: EdgeInsets.only(left: 15),
+                                  child: Text(
+                                    'Neurologist',
+                                    style: TextStyle(color: Colors.teal),
+                                  ),
                                 ),
                                 Icon(
                                   Icons.shopping_bag,
@@ -122,39 +125,87 @@ class HomeScreen extends StatelessWidget {
             child: Text(
                 'I come from jakarta indonesia . Has 10 year of\nmedical experiance especially dealing  with\nneurologistics. I will do whatever '),
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: 300, top: 15),
-            child: Text(
-              ' Reviews',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-          ),
-          Card(
-            child: SizedBox(
-              height: 120,
-              width: 360,
-              child: Column(
-                children: [
-                  ListTile(
-                    leading: Image.network(
-                      'https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg',
-                    ),
-                    title: const Text(
-                      'Cristiano Ronaldo',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    subtitle: const Text('1 Day ago'),
-                    // trailing:
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 80),
-                    child: Text(
-                        'Very Satisfying service, I recommend\nyou to use the service of this doctor'),
-                  )
-                ],
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(left: 17),
+                child: Text(
+                  ' Reviews',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                ),
               ),
+              Padding(
+                padding: EdgeInsets.only(right: 17),
+                child: Text(
+                  ' See all',
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                      color: Colors.teal),
+                ),
+              ),
+            ],
+          ),
+          SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                Card(
+                  child: SizedBox(
+                    height: 120,
+                    width: 360,
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Image.network(
+                            'https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg',
+                          ),
+                          title: const Text(
+                            'Cristiano Ronaldo',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: const Text('1 Day ago'),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(right: 80),
+                          child: Text(
+                              'Very Satisfying service, I recommend\nyou to use the service of this doctor'),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+                Card(
+                  child: SizedBox(
+                    height: 120,
+                    width: 360,
+                    child: Column(
+                      children: [
+                        ListTile(
+                          leading: Image.network(
+                            'https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg',
+                          ),
+                          title: const Text(
+                            'Cristiano Ronaldo',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          subtitle: const Text('1 Day ago'),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(right: 80),
+                          child: Text(
+                              'Very Satisfying service, I recommend\nyou to use the service of this doctor'),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           const Padding(
@@ -202,9 +253,12 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           TableCalendar(
-              focusedDay: DateTime.now(),
-              firstDay: DateTime.now(),
-              lastDay: DateTime.utc(2025)),
+            focusedDay: DateTime.now(),
+            firstDay: DateTime.now(),
+            lastDay: DateTime.utc(2025),
+            calendarFormat: CalendarFormat.month,
+            onFormatChanged: (format) {},
+          ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
