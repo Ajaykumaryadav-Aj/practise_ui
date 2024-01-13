@@ -38,6 +38,7 @@ dependencies:
   flutter_rating_bar: ^4.0.1
   table_calendar: ^3.0.9
   syncfusion_flutter_datepicker: ^24.1.45
+  readmore: ^2.2.0
 
 dev_dependencies:
   flutter_test:

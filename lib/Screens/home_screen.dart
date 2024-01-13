@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:readmore/readmore.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class HomeScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(children: [
           Card(
-            margin: const EdgeInsets.only(left: 20),
+            margin: const EdgeInsets.only(left: 10),
             color: Colors.white60,
             child: SizedBox(
               height: 220,
@@ -26,23 +27,28 @@ class HomeScreen extends StatelessWidget {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Image.network(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSC6u_6TOAU3-EG7vF1Iu4Nq4pQaq23g5f5QQ&usqp=CAU',
-                          height: 120,
-                          width: 70,
+                      Container(
+                        margin: const EdgeInsets.only(left: 15, top: 15),
+                        height: 80,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          shape: BoxShape.rectangle,
+                          image: const DecorationImage(
+                              image: NetworkImage(
+                                  'https://cdn.create.vista.com/api/media/small/218006906/stock-photo-happy-male-doctor-medical-coat-stethoscope-neck-looking-camera-isolated'),
+                              fit: BoxFit.cover),
                         ),
                       ),
-                      const Padding(
-                        padding: EdgeInsets.only(left: 10, top: 25),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10, top: 25),
                         child: Column(
                           children: [
-                            Text(
+                            const Text(
                               'Dr. Cristoper Edward',
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                            Row(
+                            const Row(
                               children: [
                                 Padding(
                                   padding: EdgeInsets.only(left: 15),
@@ -58,15 +64,34 @@ class HomeScreen extends StatelessWidget {
                                 Text('5+ years')
                               ],
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(right: 80),
-                              child: Text('Price:600'),
-                            )
+                            Wrap(
+                              spacing: 20,
+                              children: [
+                                const Text('Price:600'),
+                                Card(
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5)),
+                                  color:
+                                      const Color.fromARGB(255, 198, 141, 137),
+                                  child: const Wrap(spacing: 5, children: [
+                                    Icon(
+                                      Icons.favorite,
+                                      color: Colors.red,
+                                    ),
+                                    Text(
+                                      '4.7',
+                                      style: TextStyle(fontSize: 14),
+                                    )
+                                  ]),
+                                ),
+                              ],
+                            ),
                           ],
                         ),
                       )
                     ],
                   ),
+                  const SizedBox(height: 20),
                   Row(
                     children: [
                       Container(
@@ -114,22 +139,37 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(right: 210, top: 30),
+            padding: EdgeInsets.only(right: 210, top: 23),
             child: Text(
               'About Psychiatrist',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.only(right: 60, top: 10),
-            child: Text(
-                'I come from jakarta indonesia . Has 10 year of\nmedical experiance especially dealing  with\nneurologistics. I will do whatever '),
+          // const Padding(
+          //   padding: EdgeInsets.only(right: 60, top: 10),
+          //   child: Text(
+          //       'I come from jakarta indonesia . Has 10 year of\nmedical experiance especially dealing  with\nneurologistics. I will do whatever '
+          //       ),
+          // ),
+          Container(
+            padding: const EdgeInsets.all(22),
+            child: const ReadMoreText(
+              'I come from jakarta indonesia . Has 10 year of medical experiance especially dealing  with neurologistics. I will do whatever.I come from jakarta indonesia . Has 10 year of medical experiance especially dealing  with neurologistics. I will do whatever ',
+              trimCollapsedText: 'Read More...',
+              trimLines: 3,
+              trimMode: TrimMode.Line,
+              trimExpandedText: 'Less read',
+              moreStyle:
+                  TextStyle(color: Colors.teal, fontWeight: FontWeight.bold),
+              lessStyle:
+                  TextStyle(color: Colors.teal, fontWeight: FontWeight.bold),
+            ),
           ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 17),
+                padding: EdgeInsets.only(left: 15),
                 child: Text(
                   ' Reviews',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -152,14 +192,26 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               children: [
                 Card(
+                  margin: const EdgeInsets.only(left: 14),
                   child: SizedBox(
                     height: 120,
                     width: 360,
                     child: Column(
                       children: [
                         ListTile(
-                          leading: Image.network(
-                            'https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg',
+                          leading: Container(
+                            margin: const EdgeInsets.only(left: 5, top: 5),
+                            height: 60,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              shape: BoxShape.rectangle,
+                              image: const DecorationImage(
+                                  image: NetworkImage(
+                                    'https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg',
+                                  ),
+                                  fit: BoxFit.cover),
+                            ),
                           ),
                           title: const Text(
                             'Cristiano Ronaldo',
@@ -168,6 +220,22 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           subtitle: const Text('1 Day ago'),
+                          trailing: Card(
+                            margin: const EdgeInsets.only(left: 10, bottom: 17),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            color: const Color.fromARGB(255, 198, 141, 137),
+                            child: const Wrap(spacing: 5, children: [
+                              Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              ),
+                              Text(
+                                '4.7',
+                                style: TextStyle(fontSize: 14),
+                              )
+                            ]),
+                          ),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(right: 80),
@@ -185,8 +253,19 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         ListTile(
-                          leading: Image.network(
-                            'https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg',
+                          leading: Container(
+                            margin: const EdgeInsets.only(left: 5, top: 5),
+                            height: 60,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                              shape: BoxShape.rectangle,
+                              image: const DecorationImage(
+                                  image: NetworkImage(
+                                    'https://cdn.britannica.com/73/234573-050-8EE03E16/Cristiano-Ronaldo-ceremony-rename-airport-Santa-Cruz-Madeira-Portugal-March-29-2017.jpg',
+                                  ),
+                                  fit: BoxFit.cover),
+                            ),
                           ),
                           title: const Text(
                             'Cristiano Ronaldo',
@@ -195,6 +274,22 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
                           subtitle: const Text('1 Day ago'),
+                          trailing: Card(
+                            margin: const EdgeInsets.only(left: 10, bottom: 17),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5)),
+                            color: const Color.fromARGB(255, 198, 141, 137),
+                            child: const Wrap(spacing: 5, children: [
+                              Icon(
+                                Icons.favorite,
+                                color: Colors.red,
+                              ),
+                              Text(
+                                '4.7',
+                                style: TextStyle(fontSize: 14),
+                              )
+                            ]),
+                          ),
                         ),
                         const Padding(
                           padding: EdgeInsets.only(right: 80),
@@ -252,12 +347,28 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ),
-          TableCalendar(
-            focusedDay: DateTime.now(),
-            firstDay: DateTime.now(),
-            lastDay: DateTime.utc(2025),
-            calendarFormat: CalendarFormat.month,
-            onFormatChanged: (format) {},
+          Card(
+            margin: const EdgeInsets.only(left: 15, right: 15),
+            child: TableCalendar(
+              daysOfWeekVisible: true,
+              focusedDay: DateTime.now(),
+              firstDay: DateTime.now(),
+              lastDay: DateTime.utc(2025),
+              calendarFormat: CalendarFormat.week,
+              calendarStyle: const CalendarStyle(
+                todayDecoration: BoxDecoration(color: Colors.amber),
+              ),
+              // headerStyle: HeaderStyle(
+              //   decoration: BoxDecoration(color: Colors.blue),
+              // ),
+              // rangeStartDay: DateTime.now(),
+              onRangeSelected: (start, end, focusedDay) => true,
+              daysOfWeekStyle: const DaysOfWeekStyle(
+                  weekendStyle: TextStyle(fontWeight: FontWeight.bold)),
+            ),
+          ),
+          const SizedBox(
+            height: 15,
           ),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -304,7 +415,7 @@ class HomeScreen extends StatelessWidget {
               onTap: () {},
               child: Container(
                 height: 55,
-                width: 365,
+                width: 370,
                 alignment: Alignment.center,
                 decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(5)),
