@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10, top: 25),
+                        padding: const EdgeInsets.only(left: 10, top: 17),
                         child: Column(
                           children: [
                             const Text(
@@ -101,15 +101,23 @@ class HomeScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
                             color: Colors.greenAccent),
-                        child: const ListTile(
-                          title: Text(
+                        child: ListTile(
+                          title: const Text(
                             '2112+',
                             style: TextStyle(color: Colors.teal),
                           ),
-                          subtitle: Text('Patients'),
-                          trailing: Icon(
-                            Icons.people,
-                            color: Colors.white,
+                          subtitle: const Text('Patients'),
+                          trailing: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.people,
+                              color: Colors.teal,
+                            ),
                           ),
                         ),
                       ),
@@ -119,16 +127,25 @@ class HomeScreen extends StatelessWidget {
                         width: 170,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(8),
-                            color: Colors.yellowAccent),
-                        child: const ListTile(
-                          title: Text(
+                            color: const Color.fromARGB(255, 239, 239, 236)),
+                        child: ListTile(
+                          title: const Text(
                             '200+',
-                            style: TextStyle(color: Colors.teal),
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 233, 211, 10)),
                           ),
-                          subtitle: Text('Reviews '),
-                          trailing: Icon(
-                            Icons.star,
-                            color: Colors.white,
+                          subtitle: const Text('Reviews '),
+                          trailing: Container(
+                            height: 30,
+                            width: 30,
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Icon(
+                              Icons.star,
+                              color: Color.fromARGB(255, 249, 225, 9),
+                            ),
                           ),
                         ),
                       ),
@@ -139,22 +156,17 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(right: 210, top: 23),
+            padding: EdgeInsets.only(right: 210, top: 15),
             child: Text(
               'About Psychiatrist',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ),
-          // const Padding(
-          //   padding: EdgeInsets.only(right: 60, top: 10),
-          //   child: Text(
-          //       'I come from jakarta indonesia . Has 10 year of\nmedical experiance especially dealing  with\nneurologistics. I will do whatever '
-          //       ),
-          // ),
+
           Container(
-            padding: const EdgeInsets.all(22),
+            padding: const EdgeInsets.only(left: 22, right: 22, top: 5),
             child: const ReadMoreText(
-              'I come from jakarta indonesia . Has 10 year of medical experiance especially dealing  with neurologistics. I will do whatever.I come from jakarta indonesia . Has 10 year of medical experiance especially dealing  with neurologistics. I will do whatever ',
+              'I come from jakarta indonesia . Has 10 year of medical experiance especially dealing  with neurologistics. I will do whatever.I come from jakarta indonesia . Has 10 year of medical experiance especially dealing   ',
               trimCollapsedText: 'Read More...',
               trimLines: 3,
               trimMode: TrimMode.Line,
@@ -169,7 +181,7 @@ class HomeScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Padding(
-                padding: EdgeInsets.only(left: 15),
+                padding: EdgeInsets.only(left: 16),
                 child: Text(
                   ' Reviews',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -192,7 +204,7 @@ class HomeScreen extends StatelessWidget {
             child: Row(
               children: [
                 Card(
-                  margin: const EdgeInsets.only(left: 14),
+                  margin: const EdgeInsets.only(left: 16, right: 10),
                   child: SizedBox(
                     height: 120,
                     width: 360,
@@ -247,6 +259,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
                 Card(
+                  // margin: const EdgeInsets.only(left: 10, right: 10),
                   child: SizedBox(
                     height: 120,
                     width: 360,
@@ -304,44 +317,79 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.only(top: 12, right: 160),
+            padding: EdgeInsets.only(top: 12, right: 188),
             child: Text(
               ' Select Perfect Package',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ),
           const SizedBox(height: 13),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          const Wrap(
+            spacing: 90,
             children: [
-              Icon(
-                Icons.message,
-                size: 40,
-                color: Colors.teal,
+              Column(
+                children: [
+                  Icon(
+                    Icons.message,
+                    size: 40,
+                    color: Colors.teal,
+                  ),
+                  Text('Messaging')
+                ],
               ),
-              Icon(
-                Icons.call,
-                size: 40,
-                color: Colors.teal,
+              Column(
+                children: [
+                  Icon(
+                    Icons.call,
+                    size: 40,
+                    color: Colors.teal,
+                  ),
+                  Text('Voice call')
+                ],
               ),
-              Icon(
-                Icons.video_call,
-                size: 40,
-                color: Colors.teal,
+              Column(
+                children: [
+                  Icon(
+                    Icons.video_call,
+                    size: 40,
+                    color: Colors.teal,
+                  ),
+                  Text('video call')
+                ],
               )
             ],
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text('Messaging'),
-              Text('Voice call'),
-              Text('video call')
-            ],
-          ),
+          // const Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     Icon(
+          //       Icons.message,
+          //       size: 40,
+          //       color: Colors.teal,
+          //     ),
+          //     Icon(
+          //       Icons.call,
+          //       size: 40,
+          //       color: Colors.teal,
+          //     ),
+          //     Icon(
+          //       Icons.video_call,
+          //       size: 40,
+          //       color: Colors.teal,
+          //     )
+          //   ],
+          // ),
+          // const Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   children: [
+          //     Text('Messaging'),
+          //     Text('Voice call'),
+          //     Text('video call')
+          //   ],
+          // ),
           const SizedBox(height: 15),
           const Padding(
-            padding: EdgeInsets.only(right: 170),
+            padding: EdgeInsets.only(right: 205),
             child: Text(
               ' Select Date and Time',
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
@@ -370,8 +418,8 @@ class HomeScreen extends StatelessWidget {
           const SizedBox(
             height: 15,
           ),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          const Wrap(
+            spacing: 70,
             children: [
               SizedBox(
                 height: 30,
@@ -399,7 +447,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 37),
+          const SizedBox(height: 30),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
