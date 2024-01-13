@@ -324,69 +324,63 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 13),
-          const Wrap(
+          Wrap(
             spacing: 90,
             children: [
               Column(
                 children: [
-                  Icon(
-                    Icons.message,
-                    size: 40,
-                    color: Colors.teal,
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 173, 227, 115),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: const Icon(
+                      Icons.message,
+                      size: 25,
+                      color: Colors.teal,
+                    ),
                   ),
-                  Text('Messaging')
+                  const Text('Messaging')
                 ],
               ),
               Column(
                 children: [
-                  Icon(
-                    Icons.call,
-                    size: 40,
-                    color: Colors.teal,
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.teal,
+                        borderRadius: BorderRadius.circular(10)),
+                    child: const Icon(
+                      Icons.call,
+                      size: 25,
+                      color: Colors.white,
+                    ),
                   ),
-                  Text('Voice call')
+                  const Text('Voice call')
                 ],
               ),
               Column(
                 children: [
-                  Icon(
-                    Icons.video_call,
-                    size: 40,
-                    color: Colors.teal,
+                  Container(
+                    height: 40,
+                    width: 40,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 173, 227, 115),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: const Icon(
+                      Icons.videocam,
+                      size: 25,
+                      color: Colors.teal,
+                    ),
                   ),
-                  Text('video call')
+                  const Text('video call')
                 ],
               )
             ],
           ),
-          // const Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     Icon(
-          //       Icons.message,
-          //       size: 40,
-          //       color: Colors.teal,
-          //     ),
-          //     Icon(
-          //       Icons.call,
-          //       size: 40,
-          //       color: Colors.teal,
-          //     ),
-          //     Icon(
-          //       Icons.video_call,
-          //       size: 40,
-          //       color: Colors.teal,
-          //     )
-          //   ],
-          // ),
-          // const Row(
-          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //   children: [
-          //     Text('Messaging'),
-          //     Text('Voice call'),
-          //     Text('video call')
-          //   ],
-          // ),
+          
           const SizedBox(height: 15),
           const Padding(
             padding: EdgeInsets.only(right: 205),
@@ -406,10 +400,7 @@ class HomeScreen extends StatelessWidget {
               calendarStyle: const CalendarStyle(
                 todayDecoration: BoxDecoration(color: Colors.amber),
               ),
-              // headerStyle: HeaderStyle(
-              //   decoration: BoxDecoration(color: Colors.blue),
-              // ),
-              // rangeStartDay: DateTime.now(),
+              
               onRangeSelected: (start, end, focusedDay) => true,
               daysOfWeekStyle: const DaysOfWeekStyle(
                   weekendStyle: TextStyle(fontWeight: FontWeight.bold)),
