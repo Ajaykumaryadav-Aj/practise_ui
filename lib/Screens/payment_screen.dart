@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:practise_ui/Screens/home_screen.dart';
+import 'package:practise_ui/Screens/new_card_screen.dart';
 
-class PaymentScreen extends StatelessWidget {
+class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
+
+  @override
+  State<PaymentScreen> createState() => _PaymentScreenState();
+}
+
+class _PaymentScreenState extends State<PaymentScreen> {
+  bool isChecked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,21 +57,38 @@ class PaymentScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 12),
-          ListTile(
-            leading: const CircleAvatar(
-              radius: 28,
-              backgroundImage: AssetImage(
-                'assets/paypal.png',
+          Container(
+            height: 90,
+            width: 380,
+            decoration: BoxDecoration(
+                border: Border.all(width: 2, color: Colors.teal),
+                borderRadius: BorderRadius.circular(12)),
+            child: ListTile(
+              titleAlignment: ListTileTitleAlignment.center,
+              leading: Container(
+                height: 55,
+                width: 55,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Color.fromARGB(255, 193, 229, 151),
+                ),
+                child: Image.asset(
+                  'assets/paypal.png',
+                  scale: 8,
+                ),
+              ),
+              title: const Text(
+                'PayPal Account',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: const Text('aj************@gmail.com'),
+              trailing: Radio(
+                activeColor: Colors.teal,
+                value: 1,
+                groupValue: 1,
+                onChanged: (value) {},
               ),
             ),
-            title: const Text(
-              'PayPal Account',
-              style: TextStyle(fontWeight: FontWeight.bold),
-            ),
-            subtitle: const Text('aj************@gmail.com'),
-            trailing: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.radio_button_unchecked)),
           ),
           const SizedBox(height: 12),
           ListTile(
@@ -89,16 +114,6 @@ class PaymentScreen extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           ListTile(
-            style: ListTileStyle.drawer,
-
-            // tileColor: Colors.amber,
-            // textColor: Colors.green,
-            // hoverColor: Colors.cyan,
-            // selectedColor: Colors.lightBlue,
-            shape: const BeveledRectangleBorder(
-              side: BorderSide(color: Colors.teal),
-            ),
-            
             leading: Container(
               height: 55,
               width: 55,
@@ -115,22 +130,59 @@ class PaymentScreen extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             subtitle: const Text('aj************@gmail.com'),
-            trailing: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.radio_button_unchecked)),
+            trailing: const Icon(Icons.radio_button_unchecked),
           ),
+          const SizedBox(height: 15),
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NewcardScreen(),
+                    ));
+              },
               child: Container(
                 height: 55,
                 width: 380,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.black)),
-                child: const Row(
-                  children: [Icon(Icons.add), Text('Add New card')],
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.teal, width: 2),
                 ),
-              ))
+                child: const Padding(
+                  padding: EdgeInsets.only(top: 13),
+                  child: Wrap(
+                    spacing: 150,
+                    children: [
+                      Icon(
+                        Icons.add,
+                        color: Colors.teal,
+                      ),
+                      Text(
+                        'Add New card',
+                        style: TextStyle(color: Colors.teal),
+                      )
+                    ],
+                  ),
+                ),
+              )),
+          const SizedBox(height: 240),
+          InkWell(
+              onTap: () {},
+              child: Container(
+                height: 55,
+                width: 380,
+                alignment: Alignment.center,
+                decoration: const BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(5)),
+                    color: Colors.teal),
+                child: const Text(
+                  ' Continue',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 20,
+                      color: Colors.white),
+                ),
+              )),
         ],
       ),
     );
