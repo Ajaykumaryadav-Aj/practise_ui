@@ -182,7 +182,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       fontSize: 20,
                       color: Colors.white),
                 ),
-              )),
+              ),),
         ],
       ),
     );

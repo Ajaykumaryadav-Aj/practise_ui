@@ -11,7 +11,7 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Psychiatrist Details')),
-        leading: const BackButton(),
+        leading: const DrawerButton(),
         actions: const [Icon(Icons.more_vert)],
       ),
       body: SingleChildScrollView(
@@ -37,7 +37,8 @@ class DetailScreen extends StatelessWidget {
                           shape: BoxShape.rectangle,
                           image: const DecorationImage(
                               image: NetworkImage(
-                                  'https://cdn.create.vista.com/api/media/small/218006906/stock-photo-happy-male-doctor-medical-coat-stethoscope-neck-looking-camera-isolated'),
+                                  'https://cdn.create.vista.com/api/media/small/218006906/stock-photo-happy-male-doctor-medical-coat-stethoscope-neck-looking-camera-isolated'
+                                  ),
                               fit: BoxFit.cover),
                         ),
                       ),
