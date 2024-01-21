@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practise_ui/Screens/new_profile_screen.dart';
 import 'package:practise_ui/Screens/payment_screen.dart';
 import 'package:readmore/readmore.dart';
 import 'package:table_calendar/table_calendar.dart';
@@ -11,7 +12,15 @@ class DetailScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Center(child: Text('Psychiatrist Details')),
-        leading: const DrawerButton(),
+        leading: DrawerButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NewProfileScreen(),
+                ));
+          },
+        ),
         actions: const [Icon(Icons.more_vert)],
       ),
       body: SingleChildScrollView(
@@ -37,8 +46,7 @@ class DetailScreen extends StatelessWidget {
                           shape: BoxShape.rectangle,
                           image: const DecorationImage(
                               image: NetworkImage(
-                                  'https://cdn.create.vista.com/api/media/small/218006906/stock-photo-happy-male-doctor-medical-coat-stethoscope-neck-looking-camera-isolated'
-                                  ),
+                                  'https://cdn.create.vista.com/api/media/small/218006906/stock-photo-happy-male-doctor-medical-coat-stethoscope-neck-looking-camera-isolated'),
                               fit: BoxFit.cover),
                         ),
                       ),

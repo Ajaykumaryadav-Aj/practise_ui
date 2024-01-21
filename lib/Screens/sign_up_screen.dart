@@ -13,7 +13,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController _controller = TextEditingController();
   bool _obscureText = true;
   bool showPrefixIcon = true;
-  // bool passenable = true;
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

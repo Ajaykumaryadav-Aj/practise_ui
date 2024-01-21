@@ -65,12 +65,12 @@ class NewcardScreen extends StatelessWidget {
               onCreditCardModelChange: (p0) {},
               formKey: GlobalKey(),
             ),
-            const SizedBox(height: 200),
+            const SizedBox(height: 180),
             InkWell(
                 onTap: () {},
                 child: Container(
-                  height: 55,
-                  width: 380,
+                  height: 45,
+                  width: 390,
                   alignment: Alignment.center,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(5)),

@@ -165,24 +165,25 @@ class _PaymentScreenState extends State<PaymentScreen> {
                   ),
                 ),
               )),
-          const SizedBox(height: 240),
+          const SizedBox(height: 200),
           InkWell(
-              onTap: () {},
-              child: Container(
-                height: 55,
-                width: 380,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(5)),
-                    color: Colors.teal),
-                child: const Text(
-                  ' Continue',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 20,
-                      color: Colors.white),
-                ),
-              ),),
+            onTap: () {},
+            child: Container(
+              height: 55,
+              width: 380,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
+                  color: Colors.teal),
+              child: const Text(
+                ' Continue',
+                style: TextStyle(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 20,
+                    color: Colors.white),
+              ),
+            ),
+          ),
         ],
       ),
     );

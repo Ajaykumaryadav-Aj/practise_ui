@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:practise_ui/Screens/detail_screen.dart';
+import 'package:practise_ui/Screens/history_screen.dart';
 import 'package:practise_ui/Screens/profile_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final List _pages = [
     const DetailScreen(),
     const Text('assignment'),
-    const Text('feed'),
+    const HistoryScreen(),
     const ProfileScreen()
   ];
 
